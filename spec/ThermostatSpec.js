@@ -12,10 +12,19 @@ describe("Thermostat", function() {
   });
 
   it("Should raise by 1°C when when raise temperature is called", function() {
-    expect(thermostat.raiseTemperature()).toEqual(DEFAULT_TEMPERATURE+1)
+    thermostat.raiseTemperature()
+    expect(thermostat.temperature).toEqual(DEFAULT_TEMPERATURE+1)
   });
 
+  it("should decrease by 1°C when when lower temperature is called", function(){
+    thermostat.lowerTemperature()
+    expect(thermostat.temperature).toEqual(DEFAULT_TEMPERATURE-1)
+  });
 
+  it("should throw error when lower temperature is called and temperature is at or below the minimum temperature", function(){
+    thermostat.temperature = 10
+    expect(function(){ thermostat.lowerTemperature(); }).toThrowError("Minimum temperature reached")
+  });
 
 
 });
