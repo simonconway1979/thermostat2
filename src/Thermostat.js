@@ -1,7 +1,11 @@
-var START_TEMPERATURE = 20
+var DEFAULT_TEMPERATURE = 20
 
 function Thermostat() {
-this.temperature = START_TEMPERATURE
+this.temperature = DEFAULT_TEMPERATURE;
 
-  
+
+}
+
+Thermostat.prototype.raiseTemperature = function() {
+  return this.temperature += 1;
 };
