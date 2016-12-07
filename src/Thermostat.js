@@ -27,4 +27,13 @@ Thermostat.prototype.lowerTemperature = function() {
 
 Thermostat.prototype.changePowerSaveMode = function() {
   this.powerSave = !this.powerSave;
+  if (this.powerSave === true){
+    this.maximumTemperature = POWER_SAVE_ON_MAX_TEMP;
+  } else {
+    this.maximumTemperature = POWER_SAVE_OFF_MAX_TEMP;
+  }
+};
+
+Thermostat.prototype.resetTemperature = function() {
+  this.temperature = DEFAULT_TEMPERATURE
 };

@@ -40,8 +40,14 @@ describe("Thermostat", function() {
     expect(thermostat.powerSave).toEqual(false)
   });
 
-  // it("should throw error when raise temperature is called and temperature is at or above the maximum temperature", function(){
-  //   thermostat.temperature = 32
-  //   expect(function(){ thermostat.raiseTemperature(); }).toThrowError("Maximum temperature reached")
-  // });
+  it("should throw error when raise temperature is called and temperature is at or above the maximum temperature", function(){
+    thermostat.temperature = 32
+    expect(function(){ thermostat.raiseTemperature(); }).toThrowError("Maximum temperature reached")
+  });
+
+  it("Should reset the temperature to the default temperature when reset", function() {
+    thermostat.temperature = 25
+    thermostat.resetTemperature()
+    expect(thermostat.temperature).toEqual(DEFAULT_TEMPERATURE)
+  });
 });
