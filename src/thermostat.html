@@ -4,32 +4,7 @@
   <title>Thermostat</title>
 </head>
 <body>
-  <script src="jquery.js"></script>
-
-<script>
-  window.onload = function() {
-      alert( "Your mum" );
-  };
-
-  $( document ).ready(function() {
-
-    $( "#increasetemp" ).click(function( event ) {
-
-        alert( "Thanks for visiting!" );
-
-    });
-
-    $( "#decreasetemp" ).click(function( event ) {
-
-      event.preventDefault();
-
-      $( this ).hide( "slow" );
-
-  });
-
-
-});
-</script>
+<script src="jquery.js"></script>
 
   <h1>Thermostat by Simon and Rory</h1>
   <p id='currenttemp'>20</p>
@@ -45,5 +20,6 @@
   <p> Power save mode: <span id='powersavestatus'>on</span> <button id='powersave'>toggle</button></p>
   <p id="energyusage">medium-usage</p>
   <script src="./Thermostat.js"></script>
+  <script src='interface.js'></script>
 </body>
 </html>
