@@ -6,6 +6,8 @@ var powersavestatus = $('#powersavestatus');
 var powersavetoggle = $('#powersavetoggle');
 var currenttemp = $('#currenttemp');
 var energyusage = $('#energyusage');
+var weather = $('#weather');
+
 
 $( document ).ready(function() {
   currenttemp.text(thermostat.showTemperature());
@@ -23,9 +25,14 @@ raisetemp.click(function (event) {
   energyusage.text(thermostat.energyUsage());
 });
 
-$('#currentcity').change(function (event) {
+  $('#currentcity').change(function() {
+    var city = $('#currentcity').val();
+      console.log(city);
 
-})
+    $.get('http://api.openweathermap.org/data/2.5/weather?id=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+      $('#weather').text(data.main.temp)
+  })
+});
 
 
 lowertemp.click(function (event) {
