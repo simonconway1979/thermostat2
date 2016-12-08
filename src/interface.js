@@ -1,24 +1,29 @@
-thermostat = new Thermostat();
+var thermostat = new Thermostat();
+var raisetemp = $('#raisetemp');
+var lowertemp = $('#lowertemp');
+var reset = $('#reset');
+var powersavestatus = $('#powersavestatus');
+var powersavetoggle = $('#powersavetoggle');
+var currenttemp = $('#currenttemp');
+var eneryusage = $('#energyusage');
 
 
-window.onload = function() {
-    alert( "Your mum says" );
+raisetemp.click(function (event) {
+thermostat.raiseTemperature();
+currenttemp.text(thermostat.showTemperature());
+});
 
-    $( "#increasetemp" ).click(function( event ) {
+lowertemp.click(function (event) {
+thermostat.lowerTemperature();
+currenttemp.text(thermostat.showTemperature());
+});
 
-      alert( "Thanks for visiting!" );
+reset.click(function (event) {
+thermostat.resetTemperature();
+currenttemp.text(thermostat.showTemperature());
+});
 
-    });
-};
-
-
-
-
-
-  $( "#decreasetemp" ).click(function( event ) {
-
-    event.preventDefault();
-
-    $( this ).hide( "slow" );
-
+powersavetoggle.click(function (event) {
+thermostat.changePowerSaveMode();
+powersavestatus.text(thermostat.showPowerSaveMode());
 });

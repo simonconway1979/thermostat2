@@ -25,6 +25,10 @@ Thermostat.prototype.lowerTemperature = function() {
   }
 };
 
+Thermostat.prototype.showTemperature = function() {
+  return this.temperature;
+};
+
 Thermostat.prototype.changePowerSaveMode = function() {
   this.powerSave = !this.powerSave;
   if (this.powerSave === true){
@@ -33,6 +37,12 @@ Thermostat.prototype.changePowerSaveMode = function() {
     this.maximumTemperature = POWER_SAVE_OFF_MAX_TEMP;
   }
 };
+
+Thermostat.prototype.showPowerSaveMode = function () {
+  if (this.powerSave) {return "On"}
+  else {return "Off"}
+};
+
 
 Thermostat.prototype.resetTemperature = function() {
   this.temperature = DEFAULT_TEMPERATURE
