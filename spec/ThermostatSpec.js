@@ -50,4 +50,25 @@ describe("Thermostat", function() {
     thermostat.resetTemperature()
     expect(thermostat.temperature).toEqual(DEFAULT_TEMPERATURE)
   });
+
+  it("should show the current energy usage is high when the temperature is above 25", function() {
+    thermostat.changePowerSaveMode();
+    for(var i=0; i<6; i++) {
+    thermostat.raiseTemperature();
+    };
+    expect(thermostat.energyUsage()).toEqual("high-usage")
+  });
+
+  it("should show the current energy usage is medium when the temperature is above 17 and below 26", function() {
+    expect(thermostat.energyUsage()).toEqual("medium-usage")
+  });
+
+  it("should show the current energy usage is low when the temperature is below 18", function() {
+    for(var i=0; i<3; i++) {
+    thermostat.lowerTemperature();
+    };
+    expect(thermostat.energyUsage()).toEqual("low-usage")
+  });
+
+
 });
