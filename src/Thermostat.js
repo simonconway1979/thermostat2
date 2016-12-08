@@ -36,4 +36,5 @@ Thermostat.prototype.changePowerSaveMode = function() {
 
 Thermostat.prototype.resetTemperature = function() {
   this.temperature = DEFAULT_TEMPERATURE
+  this.powerSave = true
 };
